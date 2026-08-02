@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  workflow_call:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    name: Lint, tests, coverage and audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Require package-lock.json
+        run: test -f package-lock.json || (echo "Run scripts/prepare-repository and commit package-lock.json" && exit 1)
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Run complete quality gate
+        run: npm run check
+
+      - name: Audit production dependencies
+        run: npm run audit:prod
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          if-no-files-found: ignore
+          retention-days: 14

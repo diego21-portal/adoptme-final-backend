@@ -1,0 +1,16 @@
+ADOPTME API - INICIO RAPIDO EN WINDOWS
+
+1. Instala Node.js 24.18.0 LTS, Git y Docker Desktop.
+2. Abre PowerShell dentro de esta carpeta.
+3. Ejecuta:
+
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+   .\scripts\prepare-repository.ps1
+
+4. Con Docker Desktop abierto, ejecuta:
+
+   .\scripts\verify-delivery.ps1 -DockerHubUser TU_USUARIO_DOCKERHUB -Version 1.0.0
+
+5. Sigue FINAL_CHECKLIST.md para publicar GitHub, Docker Hub y Google Docs.
+
+No subas .env, contraseñas ni tokens.

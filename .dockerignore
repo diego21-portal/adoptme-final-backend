@@ -1,0 +1,12 @@
+node_modules
+npm-debug.log*
+.git
+.github
+.env
+coverage
+.nyc_output
+test
+docs/evidence
+*.docx
+*.pdf
+*.zip

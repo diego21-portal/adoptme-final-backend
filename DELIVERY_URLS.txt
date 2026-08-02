@@ -1,0 +1,16 @@
+REEMPLAZAR ANTES DE ENTREGAR
+
+GitHub:
+https://github.com/TU_USUARIO_GITHUB/adoptme-final-backend
+
+Docker Hub:
+https://hub.docker.com/r/TU_USUARIO_DOCKERHUB/adoptme-final-backend
+
+Imagen versionada:
+TU_USUARIO_DOCKERHUB/adoptme-final-backend:1.0.0
+
+Imagen estable:
+TU_USUARIO_DOCKERHUB/adoptme-final-backend:latest
+
+Google Docs público:
+https://docs.google.com/document/d/TU_DOCUMENTO/edit

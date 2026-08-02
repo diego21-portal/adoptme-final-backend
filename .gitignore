@@ -1,0 +1,12 @@
+node_modules/
+.env
+coverage/
+.nyc_output/
+npm-debug.log*
+.DS_Store
+.vscode/
+.idea/
+docs/evidence/*.txt
+docs/evidence/*.json
+docs/evidence/*.log
+!docs/evidence/.gitkeep
