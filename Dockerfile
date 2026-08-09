@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1.8
 # check=error=true
 
-FROM node:24.18.0-alpine AS production-dependencies
+FROM node:26.7.0-alpine AS production-dependencies
 WORKDIR /app
 COPY package*.json ./
 RUN if [ -f package-lock.json ]; then \
@@ -10,7 +10,7 @@ RUN if [ -f package-lock.json ]; then \
       npm install --omit=dev --ignore-scripts --no-package-lock; \
     fi && npm cache clean --force
 
-FROM node:24.18.0-alpine AS runtime
+FROM node:26.7.0-alpine AS runtime
 ARG APP_VERSION=1.0.0
 ARG VCS_REF=local
 
